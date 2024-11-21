@@ -79,6 +79,39 @@ int* createArray(int size) {
 	}
 	return arr;
 }
+//TestTheCode()
+bool test(int arr1[], int arr2[], int sz01, int sz02,int TestedArray[],int sizeOfSortedArray)
+{
+	int sz3 = sz01 + sz02;
+	int indx1 = 0;
+	int indx2 = 0;
+	int res = 0;
+	int* ResArr = new int[sz01 + sz02];
+	for (int i = 0;i < (sz01 + sz02);i++)
+	{
+		while (indx1 < sz01)
+			ResArr[res++] = arr1[indx1++];
+		while(indx2<sz02)
+			ResArr[res++] = arr2[indx2++];
+
+
+	}
+	sort(ResArr, ResArr + sz3);
+	bool flag = true;
+	if (sizeOfSortedArray == sz3)
+	{
+		for (int i = 0;i < sz3;i++)
+		{
+			flag &= (TestedArray[i] == ResArr[i]);
+		}
+	}
+	else
+	{
+		flag = false;
+	}
+	return flag;
+
+}
 
 int main()
 
@@ -109,6 +142,9 @@ int main()
 			{
 				cout << Result[i] << "\n";
 			}
+			//test the code 
+			bool testing = test(Arr01, Arr02, Sz01, Sz02, Result, Res);
+			cout << "Automatic Testing";
 		}
 		else
 		{
@@ -119,6 +155,8 @@ int main()
 	{
 		cout << "there is empty array we can't sort it ";
 	}
+	
+	
 
 }
 
